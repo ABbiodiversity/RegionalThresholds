@@ -45,6 +45,6 @@ In addition, we determined the species list for the Oilsands Monitoring Region (
 We ran this analysis using the bird, mammal, and vascular plant coefficients (version 2022) and the 2018 Human Footprint Inventory. These taxonomic groups were chosen as we have a good ecological understanding for how these species are spatially distributed across Alberta. Due to the number of species evaluated, we are only presenting a subset of results in this document. ABMI staff can access the full set of results by contacting the maintainer of this repository.
 
 <center>
-![Boundary of the Oilsands Monitoring Region.](Bookdown_files/figure-html/maps/focal-region.jpg){width=80%}
+![Figure 1 - Boundary of the Oilsands Monitoring Region.](Bookdown_files/figure-html/maps/focal-region.jpg){width=80%}
 
 </center>

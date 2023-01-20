@@ -5,16 +5,16 @@ Overall, the **Maximum Abundance Threshold** approach identified the least restr
 In the Oilsands Monitoring Region, the **Maximum Abundance Threshold** approach identified 534 species followed by the **Ratio Threshold** at 25% (477), 50% (401), 75% (336), and 100% (241). Some notable species that were included in the **Maximum Abundance Threshold** but none of the **Ratio Threshold** approaches were Barn Swallow, Pronghorn, Savannah Sparrow, and Downy Chess (*Bromus tectorum*).
 
 <center>
-![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Blue Jays under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/BlueJay_Region_1000.jpg){width=80%}
+![Figure 2 - Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Blue Jays under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/BlueJay_Region_1000.jpg){width=80%}
 
 </center>
 
 <center>
-![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Pronghorn under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Pronghorn_Region_1000.jpg){width=80%}
+![Figure 3 - Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Pronghorn under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Pronghorn_Region_1000.jpg){width=80%}
 
 </center>
 
 <center>
-![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Red Baneberry (*Actaea rubra*) under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Actaea.rubra_Region_1000.jpg){width=80%}
+![Figure 4 - Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Red Baneberry (*Actaea rubra*) under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Actaea.rubra_Region_1000.jpg){width=80%}
 
 </center>
