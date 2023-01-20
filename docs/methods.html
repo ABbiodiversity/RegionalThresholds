@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2 Methods | Methods for filtering species lists for regional reporting</title>
+  <meta name="description" content="Technical documentation describing how to filter regional species lists." />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2 Methods | Methods for filtering species lists for regional reporting" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Technical documentation describing how to filter regional species lists." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Methods | Methods for filtering species lists for regional reporting" />
+  
+  <meta name="twitter:description" content="Technical documentation describing how to filter regional species lists." />
+  
+
+<meta name="author" content="Brandon Allen" />
+
+
+<meta name="date" content="2023-01-20" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="results.html"/>
+<script src="libs/header-attrs-2.12/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Regional Thresholds</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#overview" id="toc-overview"><span class="toc-section-number">1</span> Overview</a>
+<ul>
+<li><a href="index.html#caveats" id="toc-caveats"><span class="toc-section-number">1.1</span> Caveats</a></li>
+<li><a href="index.html#suggested-citation" id="toc-suggested-citation"><span class="toc-section-number">1.2</span> Suggested citation</a></li>
+<li><a href="index.html#contact" id="toc-contact"><span class="toc-section-number">1.3</span> Contact</a></li>
+</ul></li>
+<li><a href="methods.html#methods" id="toc-methods"><span class="toc-section-number">2</span> Methods</a>
+<ul>
+<li><a href="methods.html#maximum-abundance-threshold" id="toc-maximum-abundance-threshold"><span class="toc-section-number">2.1</span> Maximum Abundance Threshold</a></li>
+<li><a href="methods.html#ratio-threshold" id="toc-ratio-threshold"><span class="toc-section-number">2.2</span> Ratio Threshold</a></li>
+<li><a href="methods.html#method-comparison" id="toc-method-comparison"><span class="toc-section-number">2.3</span> Method Comparison</a></li>
+</ul></li>
+<li><a href="results.html#results" id="toc-results"><span class="toc-section-number">3</span> Results</a></li>
+<li><a href="outcomes.html#outcomes" id="toc-outcomes"><span class="toc-section-number">4</span> Outcomes</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/ABbiodiversity" target="blank">Published by ABMI</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Methods for filtering species lists for regional reporting</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="methods" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">2</span> Methods<a href="methods.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="maximum-abundance-threshold" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Maximum Abundance Threshold<a href="methods.html#maximum-abundance-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To determine if a species should be reported on in a focal region, we calculate the mean abundance of the species and compare it to 1% of the maximum provincial abundance.</p>
+<center>
+<p><span class="math inline">\(mean(RegionalAbundance) &gt; [max(ProvincialAbundance) * 0.01]\)</span></p>
+</center>
+<p>If the species is predicted to occur in the region under either current or reference conditions, we include it in our summary. This approach can be applied to all regions, irrespective of region size, and identifies areas where the species is “reasonably” abundant. However, we have identified situations where this approach either includes or excludes species from a region that differs from expert opinion. Some of the reasons that this occurs are:</p>
+<ul>
+<li><p>If we have outlier predictions, the maximum abundance may become so large that mean abundance is unlikely to ever be greater than the defined threshold.</p></li>
+<li><p>If a species has a high probability of occurrence within a small portion of a large focal region, the mean abundance may be higher than the defined threshold. This species would occur in the region, but is of low relevance for management and reporting purposes.</p></li>
+</ul>
+</div>
+<div id="ratio-threshold" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Ratio Threshold<a href="methods.html#ratio-threshold" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>One alternative approach is to filter species by comparing the mean abundance within the focal region to the mean abundance across the province..</p>
+<center>
+<p><span class="math inline">\(mean(RegionalAbundance) &gt; mean(ProvincialAbundance)\)</span></p>
+</center>
+<p>If the species is predicted to occur in the region under either current or reference conditions, we include it in our summary. This approach can be applied to all regions, irrespective of region size, and identifies areas where the mean abundance for the species within the focal region is greater than or equal to the mean abundance across the province. However, this thresholding approach is likely to be highly restrictive. Therefore, we explored adjusting the provincial mean abundance by different modifiers (100%, 75%, 50%, 25%).</p>
+<center>
+<p><span class="math inline">\(mean(RegionalAbundance) &gt; [mean(ProvincialAbundance) * 1]\)</span>
+<span class="math inline">\(mean(RegionalAbundance) &gt; [mean(ProvincialAbundance) * 0.75]\)</span>
+<span class="math inline">\(mean(RegionalAbundance) &gt; [mean(ProvincialAbundance) * 0.5]\)</span>
+<span class="math inline">\(mean(RegionalAbundance) &gt; [mean(ProvincialAbundance) * 0.25]\)</span></p>
+</center>
+<p>In both methods, we ignore pixels that do not have predictions within the reporting region due to many species not having full provincial models.</p>
+</div>
+<div id="method-comparison" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Method Comparison<a href="methods.html#method-comparison" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>As the ABMI is constantly reporting on new regions of interest, we assessed the utility of these methods using simulated regions of different spatial sizes (25 km^2, 100 km^2, 1000 km2, 10,000 km^2, 100,000 km^2). In some instances, simulated regions did not result in complete spatial coverage. These missing areas are represented using white or grey.</p>
+<p>In addition, we determined the species list for the Oilsands Monitoring Region (Figure 1) based on each filtering approach. By using an area of the province we consistently report on, we can determine which filtering approach best matches our expert opinions.</p>
+<p>We ran this analysis using the bird, mammal, and vascular plant coefficients (version 2022) and the 2018 Human Footprint Inventory. These taxonomic groups were chosen as we have a good ecological understanding for how these species are spatially distributed across Alberta. Due to the number of species evaluated, we are only presenting a subset of results in this document. ABMI staff can access the full set of results by contacting the maintainer of this repository.</p>
+<center>
+<p><img src="Bookdown_files/figure-html/maps/focal-region.jpg" style="width:80.0%" /></p>
+</center>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

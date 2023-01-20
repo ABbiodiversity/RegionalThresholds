@@ -1,0 +1,20 @@
+# Results
+
+Overall, the **Maximum Abundance Threshold** approach identified the least restrictive species ranges. While the **Ratio Threshold** with the 100% modifier resulted in the most restrictive species ranges (Figures 2-4). This was irrespective of the size of the focal region.
+
+In the Oilsands Monitoring Region, the **Maximum Abundance Threshold** approach identified 534 species followed by the **Ratio Threshold** at 25% (477), 50% (401), 75% (336), and 100% (241). Some notable species that were included in the **Maximum Abundance Threshold** but none of the **Ratio Threshold** approaches were Barn Swallow, Pronghorn, Savannah Sparrow, and Downy Chess (*Bromus tectorum*).
+
+<center>
+![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Blue Jays under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/BlueJay_Region_1000.jpg){width=80%}
+
+</center>
+
+<center>
+![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Pronghorn under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Pronghorn_Region_1000.jpg){width=80%}
+
+</center>
+
+<center>
+![Abundance, simulated regions (1,000 km2), mean threshold, and ratio thresholds for Red Baneberry (*Actaea rubra*) under both current and reference conditions. Red/Orange indicate high abundance and sites where the threshold indicated the species should be reported on.](Bookdown_files/figure-html/maps/Actaea.rubra_Region_1000.jpg){width=80%}
+
+</center>

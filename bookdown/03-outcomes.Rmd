@@ -1,0 +1,10 @@
+# Outcomes
+
+Based on this analysis, the ABMI Science Centre has decided to move forward with the following method for filtering species lists:
+
+- We will adopt the **Ratio Threshold** inclusion criteria using a modifier of 25%. Though this approach does not guarantee a completely accurate species list, it is a better approach compared to the **Maximum Abundance Threshold** method.
+- The 25% threshold was not the best method for several species of mammals. Therefore, the thresholds for those species were manually reviewed to improve accuracy. This lookup table can be found in the GitHub repository (**data/lookup/thresholding-lookup.xlsx**).
+- Species who meet the inclusion criteria under either current or reference predicted abundance will be included. This will properly capture both species who have increased or decreased in abudnance within the region.
+- When calculating the mean abundance for either the province or focal region, NA values are ignored.
+- This approach is useful for determining species lists for auto-generated reporting regions. However, we recommend that species lists are manually reviewed by those with expert knowledge to insure their accuracy whenever possible. 
+- The adopted methods will be reviewed when substantial changes to the underlying species distribution models are made in order to insure accuracy.
