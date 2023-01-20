@@ -1,7 +1,7 @@
 #
 # Title: Calculate species thresholds for simulated reporting regions
 # Created: December 8th, 2022
-# Last Updated: December 12th, 2022
+# Last Updated: December 20th, 2022
 # Author: Brandon Allen
 # Objective: Using the species model predictions, calculate the various species threshold methods
 # Keywords: Species Thresholds
@@ -26,7 +26,8 @@ load("data/base/kgrid/overlap-region.Rdata")
 overlap.region <- overlap.region[kgrid$GRID_LABEL,] # Align grids
 
 species.path <- c(list.files("data/base/species/birds/", full.names = TRUE),
-                  list.files("data/base/species/mammals/", full.names = TRUE))
+                  list.files("data/base/species/mammals/", full.names = TRUE),
+                  list.files("data/base/species/vplants/", full.names = TRUE))
 
 # Combine the predictions with the kgrid
 for (spp in species.path) {
@@ -38,6 +39,7 @@ for (spp in species.path) {
             species.name <- gsub(".RData", "", spp)
             species.name <- gsub("data/base/species/birds/", "", species.name)
             species.name <- gsub("data/base/species/mammals/", "", species.name)
+            species.name <- gsub("data/base/species/vplants/", "", species.name)
             
             # If north and south regions are available, merge. Otherwise, use what is available
             if(!is.null(north.sector)) {
@@ -134,11 +136,11 @@ region.list <- c("Region_25", "Region_100", "Region_1000",
 
 for (region in region.list) {
             
-            mean.threshold[[region]] <- aggregate(kgrid.df[, c(3, 5:296)], 
+            mean.threshold[[region]] <- aggregate(kgrid.df[, c(3, 5:1208)], 
                                                   by = list(region = kgrid.df[, region]),
                                                   FUN = function(x) mean(x, na.rm = TRUE))
             
-            sum.threshold[[region]] <- aggregate(x = kgrid.df[, c(3, 5:296)], 
+            sum.threshold[[region]] <- aggregate(x = kgrid.df[, c(3, 5:1208)], 
                                                  by = list(region = kgrid.df[, region]),
                                                  FUN = function(x) sum(x, na.rm = TRUE))
             
@@ -150,7 +152,7 @@ for (region in region.list) {
 colnames(kgrid.df)[1] <- "LinkID"
 colnames(overlap.region)[1] <- "LinkID"
 kgrid.df <- merge.data.frame(kgrid.df, overlap.region, by = "LinkID")
-kgrid.df <- kgrid.df[, c(1:4, 297:314, 5:296)]
+kgrid.df <- kgrid.df[, c(1:4, 1209:1219, 5:1208)]
 kgrid <- kgrid.df
 
 # Save results and clear memory

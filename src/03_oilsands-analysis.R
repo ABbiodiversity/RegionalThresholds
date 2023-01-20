@@ -1,10 +1,10 @@
 #
-# Title: Calculate species thresholds for the Oilsands management region
+# Title: Calculate species thresholds for the Oil sands management region
 # Created: December 12th, 2022
-# Last Updated: December 12th, 2022
+# Last Updated: December 20th, 2022
 # Author: Brandon Allen
-# Objective: Using the species model predictions, assess the species lists for the oilsands region using multiple thresholds
-# Keywords: Aggregate predictions, Species lists
+# Objective: Using the species model predictions, assess the species lists for the oil sands region using multiple thresholds
+# Keywords: Aggregate predictions, OSM species lists
 #
 
 #########################
@@ -26,7 +26,8 @@ load("data/base/kgrid/overlap-region.Rdata")
 overlap.region <- overlap.region[kgrid$GRID_LABEL,] # Align grids
 
 species.path <- c(list.files("data/base/species/birds/", full.names = TRUE),
-                  list.files("data/base/species/mammals/", full.names = TRUE))
+                  list.files("data/base/species/mammals/", full.names = TRUE),
+                  list.files("data/base/species/vplants/", full.names = TRUE))
 
 # Combine the predictions with the kgrid
 for (spp in species.path) {
@@ -38,6 +39,7 @@ for (spp in species.path) {
             species.name <- gsub(".RData", "", spp)
             species.name <- gsub("data/base/species/birds/", "", species.name)
             species.name <- gsub("data/base/species/mammals/", "", species.name)
+            species.name <- gsub("data/base/species/vplants/", "", species.name)
             
             # If north and south regions are available, merge. Otherwise, use what is available
             if(!is.null(north.sector)) {
@@ -123,11 +125,11 @@ region.list <- c("OSMR_Complete", "Provincial")
 
 for (region in region.list) {
             
-            mean.threshold[[region]] <- aggregate(kgrid.df[, c(3, 5:296)], 
+            mean.threshold[[region]] <- aggregate(kgrid.df[, c(3, 5:1208)], 
                                                   by = list(region = kgrid.df[, region]),
                                                   FUN = function(x) mean(x, na.rm = TRUE))
             
-            sum.threshold[[region]] <- aggregate(x = kgrid.df[, c(3, 5:296)], 
+            sum.threshold[[region]] <- aggregate(x = kgrid.df[, c(3, 5:1208)], 
                                                  by = list(region = kgrid.df[, region]),
                                                  FUN = function(x) sum(x, na.rm = TRUE))
             
@@ -138,7 +140,7 @@ for (region in region.list) {
 # Update the kgrid so we have one for mapping
 colnames(overlap.region)[1] <- "LinkID"
 kgrid.df <- merge.data.frame(kgrid.df, overlap.region, by = "LinkID")
-kgrid.df <- kgrid.df[, c(1:4, 297:303, 5:296)]
+kgrid.df <- kgrid.df[, c(1:4, 1209:1215, 5:1208)]
 kgrid <- kgrid.df
 
 # Save results and clear memory
@@ -147,9 +149,9 @@ save(mean.threshold, sum.threshold, kgrid, file = "data/processed/osm-species-pr
 rm(list=ls())
 gc()
 
-#################
-# Species lists #
-#################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#####################
+# OSM species lists #
+#####################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Clear memory
 rm(list=ls())
@@ -159,7 +161,7 @@ gc()
 load("data/processed/osm-species-predictions.Rdata")
 
 # Define the species list
-species.list <- colnames(kgrid)[12:303]
+species.list <- colnames(kgrid)[12:1215]
 species.list <- gsub("_Cur", "", species.list)
 species.list <- unique(gsub("_Ref", "", species.list))
 
@@ -277,10 +279,4 @@ for (species in species.list$Species) {
             
 }
 
-# Visualize and make not of notable species
-
-table(species.list$Original)
-table(species.list$Proportion.100)
-table(species.list$Proportion.75)
-table(species.list$Proportion.50)
-table(species.list$Proportion.25)
+save(species.list, file = "results/tables/osm-species-inclusion.Rdata")

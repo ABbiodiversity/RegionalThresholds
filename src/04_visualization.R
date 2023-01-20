@@ -1,15 +1,15 @@
 #
 # Title: Visualization of the regional thresholds
 # Created: December 8th, 2022
-# Last Updated: December 8th, 2022
+# Last Updated: December 20th, 2022
 # Author: Brandon Allen
 # Objective: Visualize the various approaches for determining regional thresholds.
-# Keywords: Visualization
+# Keywords: Simulated Regions
 #
 
-#################
-# Visualization #
-#################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#####################
+# Simulated Regions #
+#####################~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Clear memory
 rm(list=ls())
@@ -41,7 +41,7 @@ kgrid$Region_10000[kgrid$Region_10000 == 0] <- NA
 kgrid$Region_100000[kgrid$Region_100000 == 0] <- NA
 
 # Define the species list
-species.list <- colnames(kgrid)[23:314]
+species.list <- colnames(kgrid)[16:1219]
 species.list <- gsub("_Cur", "", species.list)
 species.list <- unique(gsub("_Ref", "", species.list))
 
@@ -110,7 +110,7 @@ for (species in species.list) {
                         
                         # Create map
                         prop.100.map <- inclusion.plot(species.data = kgrid.inclusion,
-                                                       threshold = "Propotional Area (100%)")
+                                                       threshold = "Ratio Threshold (100%)")
                         
                         #
                         # Create Proportion threshold (75%) 
@@ -132,7 +132,7 @@ for (species in species.list) {
                         
                         # Create map
                         prop.75.map <- inclusion.plot(species.data = kgrid.inclusion,
-                                                       threshold = "Propotional Area (75%)")
+                                                       threshold = "Ratio Threshold (75%)")
                         
                         #
                         # Create Proportion threshold (750%) 
@@ -154,7 +154,7 @@ for (species in species.list) {
                         
                         # Create map
                         prop.50.map <- inclusion.plot(species.data = kgrid.inclusion,
-                                                       threshold = "Propotional Area (50%)")
+                                                       threshold = "PRatio Threshold (50%)")
                         
                         #
                         # Create Proportion threshold (25%) 
@@ -176,12 +176,12 @@ for (species in species.list) {
                         
                         # Create map
                         prop.25.map <- inclusion.plot(species.data = kgrid.inclusion,
-                                                       threshold = "Propotional Area (25%)")
+                                                       threshold = "Ratio Threshold (25%)")
                         
-                        png(paste0("results/figures/", species, "_", region, ".jpg"),
-                            height = 3600,
-                            width = 5000,
-                            res = 300)
+                        jpeg(paste0("results/figures/simulated/", species, "_", region, ".jpg"),
+                            height = 1800,
+                            width = 2500,
+                            quality = 25)
                         
                         print(ggarrange(cluster.map, reference.map,
                                         current.map, mean.map,
